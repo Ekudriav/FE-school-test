@@ -330,7 +330,7 @@
         }
     }
 
-    function createPiece () {
+    function createPiece() {
 
         let field = new Field();
 
@@ -352,14 +352,15 @@
         };
 
         let isPieceOut = () => {
-            return position.top == 9 && position.left == 0;//pieceElement.style.top === '450px' && pieceElement.style.left === '0px';
+            return position.top === 9 && position.left === 0;
+            //pieceElement.style.top === '450px' && pieceElement.style.left === '0px';
         };
 
         let direction = Math.floor(Math.random() * directionNames.length);
         let stepsCount = 0;
         let turnsCount = 0;
         let moves = [];
-		let rotateFields = [];
+        let rotateFields = [];
         let position = {
             left: Math.floor(Math.random() * 10),
             top: Math.floor(Math.random() * 10)
@@ -370,15 +371,15 @@
                 const isTheWallThere = field.isTheWallThere(position, directionNames[direction]);
                 return !isTheWallThere
             },
-			
-			addRotateFields(){			
-					rotateFields.unshift(""+(position.top)+"_"+(position.left)+"_"+direction);
-			},
-			checkField(){
-			let dir = (direction - 1)<0?3:(direction - 1);
-			let tmp = ""+(position.top)+"_"+(position.left)+"_"+((direction - 1)<0?3:(direction - 1));
-			   return rotateFields.includes(tmp);
-			},
+            // add rotateFields and checkField function
+            addRotateFields() {
+                rotateFields.unshift("" + (position.top) + "_" + (position.left) + "_" + direction);
+            },
+            checkField() {
+                let dir = (direction - 1) < 0 ? 3 : (direction - 1);
+                let tmp = "" + (position.top) + "_" + (position.left) + "_" + ((direction - 1) < 0 ? 3 : (direction - 1));
+                return rotateFields.includes(tmp);
+            },
 
             turnLeft() {
                 turnsCount += 1;
@@ -393,21 +394,22 @@
                 direction = direction > 3 ? 0 : direction;
                 rotatePiece(direction);
             },
-
+            // Add check body isThereWay
             goForward() {
-				if(!this.amIFree()){
-				
-                if (!this.isThereWay()) {					
-					this.addRotateFields();
-					
-					if(!this.checkField())
-					this.turnLeft();	
-					else
-					this.turnRight();
-						
-					this.addRotateFields();
-					this.goForward();	
-					
+                if (this.amIFree())
+                    return false;
+
+                if (!this.isThereWay()) {
+                    this.addRotateFields();
+
+                    if (!this.checkField())
+                        this.turnLeft();
+                    else
+                        this.turnRight();
+
+                    this.addRotateFields();
+                    this.goForward();
+
                     return false;
                 }
 
@@ -430,7 +432,7 @@
                 }
 
                 movePiece(position);
-				this.goForward();}
+                this.goForward();
             },
             amIFree() {
                 return isPieceOut();
@@ -475,11 +477,9 @@
 
     function escapePlan() {
         const piece = createPiece();
-		piece.goForward();
-		}
-		
-		
-    
+        piece.goForward();
+    }
+
 
     function main() {
         resetField();
