@@ -1,0 +1,147 @@
+:root {
+    --text-color-1: #383838;
+    --text-color-2: #757575;
+    --container-max-width: 954px;
+    --color-icon-pirple: #5A4D99;
+    --color-icon-yellow: #BFCC36;
+    --color-icon-darkblue: #1A587A;
+    --color-btn: #FFA500;
+    --color-link: #009DF2;
+    --header-height: 200px;
+    --logo-height: 142px;
+    --contact-size: 48px;
+    --follow-size: 24px;
+    --items-size: 80px;
+    --icons-size: 18px;
+    --background-color: white;
+    --background-footer: whitesmoke;
+}
+
+.col-sm-12 {
+    margin: 1% 0;
+}
+
+.mr-15 {
+    margin-right: 15px;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.contact {
+    width: var(--contact-size);
+    height: var(--contact-size);
+}
+
+.item-logo {
+    width: var(--logo-height);
+    height: var(--logo-height);
+}
+
+.icon {
+    width: var(--icons-size);
+    height: var(--icons-size);
+}
+
+.header {
+    height: var(--header-height);
+    background: url('../assets/background-image.jpg') no-repeat top left;
+    background-size: 100%;
+    background-position-y: -300px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .header {
+        background: url('../assets/background-image-mobile.jpg') no-repeat top left;
+        background-position-y: -150px;
+        height: var(--header-height);
+    }
+
+    .hidden-element {
+        display: none;
+    }
+}
+
+.big-button {
+    background-color: var(--color-btn);
+    color: var(--text-color-1);
+}
+
+.custom-button {
+    color: var(--color-link);
+    border: 2px solid var(--color-link);
+    background-color: var(--background-color);
+    border-radius: 10px;
+}
+
+.container {
+    max-width: var(--container-max-width);
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.internet {
+    background-color: var(--color-icon-pirple);
+}
+
+.culture {
+    background-color: var(--color-icon-yellow);
+}
+
+.handshake {
+    background-color: var(--color-icon-darkblue);
+}
+
+.large-background {
+    background-color: var(--background-footer);
+    padding-top: 48px;
+    padding-bottom: 48px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.leaflets-header {
+    margin-bottom: 48px;
+}
+
+.highlighted-text {
+    padding: 6px;
+}
+
+.highlighted-text.grey {
+    background-color: var(--background-color);
+}
+
+.highlighted-text-addon {
+    margin-left: auto;
+    margin-right: auto;
+    height: 1em;
+    width: 1em;
+    padding: 6px;
+}
+
+.tags {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.contact-content img, .contact-content address {
+    display: inline-block;
+    vertical-align: middle;
+}
+
